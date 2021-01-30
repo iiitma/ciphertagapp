@@ -24,7 +24,7 @@
 
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
             <li class="nav-item">
-                <router-link class="nav-link nav-link-icon" to="">
+                <router-link class="nav-link nav-link-icon" to="/howtoplay">
                     <span class="nav-link-inner--text spartan-medium ">How to play</span>
                 </router-link>
 
@@ -36,8 +36,8 @@
 
             </!--li-->
            
-              <li class="nav-item">
-                    <router-link class="nav-link nav-link-icon avatar rounded-circle bg-transparent"  to="">
+              <li class="nav-item" v-if="user == null">
+                    <router-link class="nav-link nav-link-icon avatar rounded-circle bg-transparent"  to="/">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alien " width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M11 17a2.5 2.5 0 0 0 2 0" />
@@ -45,11 +45,24 @@
                         <line x1="8" y1="11" x2="10" y2="13" />
                         <line x1="16" y1="11" x2="14" y2="13" />
                     </svg>
-                 
-                        <span class="nav-link-inner--text d-lg-none spartan-medium">Account</span>
+               <span class="nav-link-inner--text d-lg-none spartan-medium">Account</span>
                     </router-link>
             
                 </li>
+                <li class="nav-item" v-if="user!= null">
+                   <base-dropdown menu-classes="dropdown-menu-lg dropdown-menu-right">
+
+                    <a slot="title" class="avatar avatar-sm rounded-circle spartan-bold bg-white shadow">{{user.split(":")[0][0]}}</a>
+
+                    <div class="dropdown-menu-inner p-4">
+                        <p class="text-center spartan-medium">Hi, {{user.split(":")[0]}}</p>
+                        <div class="text-center">
+                            <base-button type="primary" @click="logout()" class="mt-3 text-capitalize spartan-regular">Logout</base-button>
+                        </div>
+                    </div>
+                </base-dropdown>
+
+            </li>
         </ul>
 
     </base-nav>
@@ -66,7 +79,31 @@ export default {
         BaseNav,
         CloseButton,
         BaseDropdown
-    }
+    },
+    data() {
+        return {
+           user: null,
+           //user: "Timi:1a0d52fa-8d36-48ba-ba3c-3069e655bc21",
+        }
+    },
+
+    methods: {
+        logout() {
+            sessionStorage.removeItem("gamerid");
+             this.user = null;
+            this.$router.push("/");
+        },
+        getUser(){
+              setInterval(() => {
+             this.user = JSON.parse(sessionStorage.getItem("gamerid"));
+        }, 3000);
+        }
+
+    },
+    mounted () {
+        this.getUser();
+    },
+  
 };
 </script>
 

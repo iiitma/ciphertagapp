@@ -21,7 +21,7 @@
                 <card type="secondary" shadow header-classes="bg-white pb-5" body-classes="px-lg-5 py-lg-5" class="border-0">
                     <template>
                         <div class="text-center">
-                            <h4 class="text-dark spartan-bold">Welcome to Codenames!</h4>
+                            <h4 class="text-dark spartan-bold">Welcome to CipherTag!</h4>
                             <!--a href="#!" class="avatar rounded-circle" style="height: 100px; width: 100px">
     <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
 </a-->

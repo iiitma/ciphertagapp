@@ -2,8 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./layout/AppHeader";
 import AppFooter from "./layout/AppFooter";
-import Components from "./views/Components.vue";
 import Landing from "./views/Landing.vue";
+import Howto from "./views/Howto.vue";
 import Create from "./views/Create.vue";
 import Join from "./views/Join.vue";
 import Lobby from "./views/Lobby.vue";
@@ -16,12 +16,13 @@ export default new Router({
   linkExactActiveClass: "active",
   mode: "history",
   routes: [
+  
     {
-      path: "/components",
-      name: "components",
+      path: "/howtoplay",
+      name: "howto",
       components: {
         header: AppHeader,
-        default: Components,
+        default: Howto,
         footer: AppFooter
       }
     },

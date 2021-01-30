@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-      <notifications group="foo" />
         <router-view name="header"></router-view>
         <main>
             <fade-transition origin="center" mode="out-in" :duration="250">

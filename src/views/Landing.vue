@@ -44,9 +44,9 @@
                         </a> -->
                     </div>
                     <div class="col-sm-4 mt-4 mt-sm-0 text-right">
-                        <span class="text-white alpha-7 spartan-regular">Coded by</span>
-                        <a href="https://www.creative-tim.com" target="_blank" title="Creative Tim - Premium Bootstrap Themes and Templates">
-                          <h6 class="spartan-extrabold text-white">thetimilehin</h6>
+                         <span class="text-white alpha-7 spartan-regular">Coded by</span>
+                        <a href="https://instagram.com/thetimilehin" target="_blank" title="">
+                            <h6 class="spartan-extrabold text-white">@thetimilehin</h6>
                         </a>
                     </div>
                 </div>
