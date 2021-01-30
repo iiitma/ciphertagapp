@@ -393,7 +393,7 @@ module.exports = function(socket){
             } else {
                 io.in(roomid).emit("lobby", {
                     code: 401,
-                    msg: "Not enough players. You need a Spymaster and atleast 1 Operative on each team."
+                    msg: "Not enough players. You need a minimum of 4 players. A Spymaster and atleast 1 Operative on each team."
                 });
                 console.log(`${roomid} : Not enough players. `);
             }

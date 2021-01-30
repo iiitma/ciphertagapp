@@ -91,6 +91,7 @@
                                         <div v-if="game.teams.red.operatives.length == 0" class="avatar-group">
                                             <a class="avatar rounded-circle spartan-bold bg-grey text-white shadow hover">+</a>
                                             <a class="avatar rounded-circle spartan-bold bg-grey text-white shadow hover">+</a>
+                                            
                                         </div>
                                         <div v-else class="avatar-group">
                                             <a v-for="operative in game.teams.red.operatives" :key="operative" class="avatar rounded-circle spartan-bold bg-youtube text-white shadow hover">{{operative[0]}}</a>
@@ -163,9 +164,9 @@
                             </card>
 
                             <div v-if="game.creatorid[0] == user.gamerid.split(':')[0]" class="btn-wrapper mt-3">
-                                <base-button @click="start()" type="white" class="text-capitalize spartan-regular">Start Game</base-button>
-                                <base-button @click="reset()" type="white" class="text-capitalize spartan-regular">Reset Teams</base-button>
-                                <base-button @click="close()" type="outline-white" class="text-capitalize spartan-regular">Close Room</base-button>
+                                <base-button @click="start()" type="white" class="text-capitalize spartan-regular my-3">Start Game</base-button>
+                                <base-button @click="reset()" type="white" class="text-capitalize spartan-regular my-3">Reset Teams</base-button>
+                                <base-button @click="close()" type="outline-white" class="text-capitalize spartan-regular my-3" >Close Room</base-button>
                             </div>
 
                         </div>
@@ -262,7 +263,7 @@ export default {
             });
             this.socket.on("lobby", res => {
                 if (res.code == 382) {
-                    sessionStorage.setItem("gameid", res.data);
+                    sessionStorage.setItem("gameid", JSON.stringify(res.data));
                     sessionStorage.removeItem("room");
                     this.$router.push("/join");
 
