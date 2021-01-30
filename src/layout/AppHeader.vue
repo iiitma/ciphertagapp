@@ -4,7 +4,7 @@
         <router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
             <!--img src="img/brand/blue.png" alt="logo"-->
             <base-button type="white" size="sm">
-                <span class="spartan-bold text-primary">CODENAMES</span>
+                <span class="spartan-bold text-primary">CIPHERTAG</span>
             </base-button>
         </router-link>
 
@@ -13,7 +13,7 @@
                 <router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
             
                     <base-button type="primary" size="sm">
-                        <span class="spartan-bold">CODENAMES</span>
+                        <span class="spartan-bold">CIPHERTAG</span>
                     </base-button>
                 </router-link>
             </div>

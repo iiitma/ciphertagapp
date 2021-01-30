@@ -55,7 +55,7 @@ export default new Router({
     },
     {
       path: "/join/:id",
-      name: "join",
+      name: "joinWithID",
       components: {
         header: AppHeader,
         default: Join,

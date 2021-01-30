@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node src/server/index.js  > dist/log.txt",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && cp public/.htaccess dist && cp public/manifest.json dist",
     "lint": "vue-cli-service lint",
     "dev": "concurrently 'npm run vue' 'npm run server'",
     "vue": "vue-cli-service serve",

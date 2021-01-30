@@ -1,2 +1,68 @@
-//// Server is listening on 3231 at Sat, 30 Jan 2021 02:07:36 GMT 
+//// Server is listening on 3231 at Sat, 30 Jan 2021 03:13:02 GMT 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:13:22 GMT 
+ ////////////////////////////////////// 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:13:42 GMT 
+ ////////////////////////////////////// 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:14:02 GMT 
+ ////////////////////////////////////// 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:14:22 GMT 
+ ////////////////////////////////////// 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:14:42 GMT 
+ ////////////////////////////////////// 
+
+ 
+ ////////////////////////////////////// 
+ Server Status: 
+ Active Rooms - 0 
+ Active Player - 0 
+ Total Number of Rooms (since last restart) - 0 
+ Total Number of Games (since last restart) - 0 
+ Total Number of Players (since last restart) - 0 
+ Logged at: Sat, 30 Jan 2021 03:15:02 GMT 
+ ////////////////////////////////////// 
 
