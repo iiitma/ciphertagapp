@@ -3,7 +3,7 @@
   "short_name": "CipherTag",
   "icons": [
     {
-      "src": "./img/favicon.png",
+      "src": "./img/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     }
