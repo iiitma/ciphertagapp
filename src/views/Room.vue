@@ -1,6 +1,6 @@
 <template>
 <div>
-    <section class="section-hero section-shaped my-0">
+    <section class="section-hero section-shaped my-0" style="min-height: 100vh;">
 
         <div class="shape bg-primary">
             <ul class="circles">

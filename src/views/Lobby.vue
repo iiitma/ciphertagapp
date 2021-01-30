@@ -1,6 +1,6 @@
 <template>
 <div>
-    <section class="section-hero section-shaped my-0" >
+    <section class="section-hero section-shaped my-0" style="min-height: 100vh;">
 
         <div class="shape bg-primary">
             <ul class="circles">
@@ -69,7 +69,15 @@
         <div class=" shape-container d-flex align-items-center">
             <div class="col px-0">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-7 text-center pt-lg">
+                         <div v-if="loading" class="col-lg-7 text-center mt-lg">
+                    <div class="loader-white mx-auto my-auto">
+                        <svg viewBox="0 0 80 80">
+                            <rect x="8" y="8" width="64" height="64"></rect>
+                        </svg>
+                    </div>
+                    <p class="text-white text-center spartan-medium"> setting up the lobby</p>
+                </div>
+                    <div v-else class="col-lg-7 text-center pt-lg">
 
                         <h1 class="display-4  text-white spartan-extrabold px-3">Welcome to the Lobby! Pick a side
                         </h1>
@@ -214,6 +222,7 @@ export default {
                 people: [],
                 words: []
             },
+            loading: true,
             user: JSON.parse(sessionStorage.getItem("gameid")),
             roomid: this.$route.params.id,
             copied: false,
@@ -301,21 +310,27 @@ export default {
                 sessionStorage.setItem("room", JSON.stringify(data));
                 this.game = data;
                 this.error = [false, ""];
+                this.loading = false;
             } else if (res.code == 102) {
                 this.user.role = "";
                 this.user.team = "";
                 sessionStorage.setItem("gameid", JSON.stringify(this.user));
                 this.user = JSON.parse(sessionStorage.getItem("gameid"));
+                this.loading = false;
             } else if (res.code == 110) {
                 this.user = JSON.parse(sessionStorage.getItem("gameid"));
                 this.$router.push("/room/" + res.roomid);
+                this.loading = false;
             } else if (res.code == 401) {
                 this.error = [true, res.msg]
+                this.loading = false;
             } else if (res.code == 400) {
-                this.$router.push("/404")
+                this.loading = false;
+                this.$router.push("/404");
             } else if (res.code == 382) {
                 sessionStorage.setItem("gameid", res.data);
                 sessionStorage.removeItem("room");
+                this.loading = false;
                 this.$router.push("/join");
 
             }

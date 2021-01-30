@@ -66,7 +66,7 @@
 
             </li>
 
-            <li class="nav-item d-sm-block d-lg-none d-md-none" v-if="user != null">  <a  @click="logout()" class="btn btn-sm btn-primary mt-3 text-capitalize spartan-regular">Logout</a></li>
+            <li class="nav-item d-sm-block d-lg-none d-md-none" v-if="user != null">  <a  @click="logout()" class="btn btn-sm btn-primary text-white mt-3 text-capitalize spartan-regular">Logout</a></li>
         </ul>
 
     </base-nav>
