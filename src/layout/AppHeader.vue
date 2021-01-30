@@ -37,7 +37,7 @@
 
             </li>
            
-              <li class="nav-item" v-if="user == null">
+              <!--li-- class="nav-item" v-if="user == null">
                     <router-link class="nav-link nav-link-icon"  to="/">
 
                     <a class="avatar rounded-circle bg-transparent d-lg-flex d-none" >
@@ -51,7 +51,7 @@
                <span class="nav-link-inner--text d-lg-none spartan-medium">Account</span>
                     </router-link>
             
-                </li>
+                </!--li-->
                 <li class="nav-item d-none d-lg-block" v-if="user!= null">
                     <span>{{user.split(":")[0] || 0}}</span>
                    <base-dropdown menu-classes="dropdown-menu-lg dropdown-menu-right">
