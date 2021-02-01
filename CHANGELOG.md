@@ -1,11 +1,11 @@
 # Changelog
 
-##[1.1.0] 2019-02-12
-- Package updates
-- SSR fixes for checkboxes and radio
-- IE fixes
-- Best practices & accessibility improvements + pwa support
+##[1.0.0-alpha] 2021-01-30
 
-## [1.0.0] 2018-08-14
-Initial stable release
-### Original Release
+- Alpha Test Release
+
+##[1.0.1-alpha] 2021-02-01
+
+- Updated User Management
+- Fixed "Become a Spectator" bug
+- Fixed score count bug
