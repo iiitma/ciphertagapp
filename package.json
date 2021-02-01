@@ -6,6 +6,7 @@
     "start": "node src/server/index.js  > dist/log.txt",
     "build": "vue-cli-service build && cp public/.htaccess dist && cp public/manifest.json dist",
     "lint": "vue-cli-service lint",
+    "test": "npm run build && npm run server",
     "dev": "concurrently 'npm run vue' 'npm run server'",
     "vue": "vue-cli-service serve",
     "server": "nodemon src/server/index.js"

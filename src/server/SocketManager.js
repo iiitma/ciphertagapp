@@ -15,7 +15,7 @@ setInterval(() => {
     history.getactiveplayers = getactiveplayers();
     console.log(` \n ////////////////////////////////////// \n Server Status: \n Active Rooms - ${history.activerooms} \n Active Player - ${history.getactiveplayers} \n Total Number of Rooms (since last restart) - ${history.rooms.length} \n Total Number of Games (since last restart) - ${history.games} \n Total Number of Players (since last restart) - ${history.players.length} \n Logged at: ${new Date().toUTCString()} \n ////////////////////////////////////// \n`)
 
-}, 20000);
+}, 300000);
 
 
 setInterval(() => {
@@ -26,7 +26,7 @@ setInterval(() => {
 
 
 
- history = {
+history = {
     activerooms: 0,
     activeplayers: 0,
     games: 0,
@@ -37,7 +37,7 @@ let rooms = []
 let roomsdetails = [];
 
 
-module.exports = function(socket){
+module.exports = function (socket) {
 
     // sending to the client
     socket.emit("hello", "This server dey work o!");
@@ -246,84 +246,85 @@ module.exports = function(socket){
             }
             socket.emit("lobby", res);
             console.log(`${roomid} : ${res.data}`);
-            
-        } else{
-        room.lastactive = new Date().getTime();;
-        if (room.status == 0) {
-            if (role == "spymaster") {
-                if (room.teams[team].spymaster.length < 1) {
-                    if (room.teams[team].operatives.includes(gamerid)) {
-                        room.teams[team].operatives.splice(room.teams[team].operatives.indexOf(gamerid), 1);
-                    }
-                    if (room.teams[altTeam(team)].operatives.includes(gamerid)) {
-                        room.teams[altTeam(team)].operatives.splice(room.teams[altTeam(team)].operatives.indexOf(gamerid), 1);
-                    }
-                    if (room.teams[altTeam(team)].spymaster == gamerid) {
-                        room.teams[altTeam(team)].spymaster = ""
-                    }
-                    if (room.teams.spectators.includes(gamerid)) {
-                        room.teams.spectators.splice(room.teams.spectators.indexOf(gamerid), 1);
-                    }
-                    room.teams[team].spymaster = gamerid;
-                    update.role = "spymaster";
-                    update.team = team;
-                    console.log(`${room.roomid} : ${gamerid} joined ${team} as ${role}`);
-                }
-            } else if (role == "operative") {
 
-                if (room.teams[team].operatives.length < 2) {
-                    if (room.teams[team].spymaster == gamerid) {
-                        room.teams[team].spymaster = ""
+        } else {
+            room.lastactive = new Date().getTime();;
+            if (room.status == 0) {
+                if (role == "spymaster") {
+                    if (room.teams[team].spymaster.length < 1) {
+                        if (room.teams[team].operatives.includes(gamerid)) {
+                            room.teams[team].operatives.splice(room.teams[team].operatives.indexOf(gamerid), 1);
+                        }
+                        if (room.teams[altTeam(team)].operatives.includes(gamerid)) {
+                            room.teams[altTeam(team)].operatives.splice(room.teams[altTeam(team)].operatives.indexOf(gamerid), 1);
+                        }
+                        if (room.teams[altTeam(team)].spymaster == gamerid) {
+                            room.teams[altTeam(team)].spymaster = ""
+                        }
+                        if (room.teams.spectators.includes(gamerid)) {
+                            room.teams.spectators.splice(room.teams.spectators.indexOf(gamerid), 1);
+                        }
+                        room.teams[team].spymaster = gamerid;
+                        update.role = "spymaster";
+                        update.team = team;
+                        console.log(`${room.roomid} : ${gamerid} joined ${team} as ${role}`);
                     }
-                    if (room.teams[altTeam(team)].spymaster == gamerid) {
-                        room.teams[altTeam(team)].spymaster = ""
+                } else if (role == "operative") {
+
+                    if (room.teams[team].operatives.length < 2) {
+                        if (room.teams[team].spymaster == gamerid) {
+                            room.teams[team].spymaster = ""
+                        }
+                        if (room.teams[altTeam(team)].spymaster == gamerid) {
+                            room.teams[altTeam(team)].spymaster = ""
+                        }
+                        if (room.teams[altTeam(team)].operatives.includes(gamerid)) {
+                            room.teams[altTeam(team)].operatives.splice(room.teams[altTeam(team)].operatives.indexOf(gamerid), 1);
+                        }
+                        room.teams[team].operatives.push(gamerid);
+                        if (room.teams.spectators.includes(gamerid)) {
+                            room.teams.spectators.splice(room.teams.spectators.indexOf(gamerid), 1);
+                        }
+                        update.role = "operative";
+                        update.team = team;
+                        console.log(`${room.roomid} : ${gamerid} joined ${team} as ${role}`);
                     }
-                    if (room.teams[altTeam(team)].operatives.includes(gamerid)) {
-                        room.teams[altTeam(team)].operatives.splice(room.teams[altTeam(team)].operatives.indexOf(gamerid), 1);
+                } else if (role == "spectator") {
+                    if (room.teams.blue.operatives.includes(gamerid)) {
+                        room.teams.blue.operatives.splice(room.teams.blue.operatives.indexOf(gamerid), 1);
                     }
-                    room.teams[team].operatives.push(gamerid);
-                    if (room.teams.spectators.includes(gamerid)) {
-                        room.teams.spectators.splice(room.teams.spectators.indexOf(gamerid), 1);
+                    if (room.teams.red.operatives.includes(gamerid)) {
+                        room.teams.red.operatives.splice(room.teams.red.operatives.indexOf(gamerid), 1);
                     }
-                    update.role = "operative";
-                    update.team = team;
-                    console.log(`${room.roomid} : ${gamerid} joined ${team} as ${role}`);
+                    if (room.teams.red.spymaster == gamerid) {
+                        room.teams.red.spymaster = ""
+                    }
+                    if (room.teams.blue.spymaster == gamerid) {
+                        room.teams.blue.spymaster = ""
+                    }
+                    if (!room.teams.spectators.includes(gamerid)) {
+                        room.teams.spectators.push(gamerid);
+                    }  update.role = "spectator";
+                        update.team = "spectator";
+                        console.log(`${room.roomid} : ${gamerid} joined as ${role}`);
                 }
-            } else if (role == "spectator") {
-                if (room.teams.blue.operatives.includes(gamerid)) {
-                    room.teams.blue.operatives.splice(room.teams.blue.operatives.indexOf(gamerid), 1);
+                let res = {
+                    code: 200,
+                    data: room,
                 }
-                if (room.teams.red.operatives.includes(gamerid)) {
-                    room.teams.red.operatives.splice(room.teams.red.operatives.indexOf(gamerid), 1);
-                }
-                if (room.teams.red.spymaster == gamerid) {
-                    room.teams.red.spymaster = ""
-                }
-                if (room.teams.blue.spymaster == gamerid) {
-                    room.teams.blue.spymaster = ""
-                }
-                room.teams.spectators.push(gamerid);
-                update.role = "spectator";
-                update.team = "spectator";
-                console.log(`${room.roomid} : ${gamerid} joined as ${role}`);
-            }
-            let res = {
-                code: 200,
-                data: room,
-            }
-            io.in(roomid).emit("lobby", res);
-            res.user = update;
-            socket.emit("changeTeam", res);
+                io.in(roomid).emit("lobby", res);
+                res.user = update;
+                socket.emit("changeTeam", res);
 
 
-        } else if (room.status == 1) {
-            let res = {
-                code: 201,
-                data: room.roomid
+            } else if (room.status == 1) {
+                let res = {
+                    code: 201,
+                    data: room.roomid
+                }
+                socket.emit("lobby", res);
+                console.log(`${room.roomid} : Game has started already!`);
             }
-            socket.emit("lobby", res);
-            console.log(`${room.roomid} : Game has started already!`);
-        }
         }
     });
 
@@ -459,7 +460,8 @@ module.exports = function(socket){
                     id = +i;
                 }
             }
-            if (word[1] == "blue" && room.turn == 1) {
+            if (words[id][2] == 'hidden') {
+                if (word[1] == "blue" && room.turn == 1) {
                 let points = [room.points[0] - 1, room.points[1]];
                 room.points = points
                 room.words[id] = [word[0], word[1], "revealed"]
@@ -496,7 +498,7 @@ module.exports = function(socket){
                     room.words[id] = [word[0], word[1], "revealed"];
                 }
             }
-
+         }
             let res = {
                 code: 200,
                 data: room
@@ -536,10 +538,6 @@ module.exports = function(socket){
                 console.log(`${roomid} : Game Over - Red Team Won`);
 
             }
-
-
-
-
         } else {
             let res = {
                 code: 400,
@@ -677,7 +675,7 @@ module.exports = function(socket){
 
     // Disconnect a socket
     socket.on('disconnect', () => {
-       
+
     });
 
 };
@@ -727,6 +725,7 @@ function createroom(e) {
     room.roomid = createroomid();
     room.creatorid = e.split(':');
     room.people.push(e);
+    
 
     return room;
 }
@@ -786,24 +785,24 @@ function setPoints(turn) {
     }
 }
 
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
-    function getRandomArray(min, max, length) {
-        let result = [];
-        for (i = 0; i < length; i++) {
-            let int = getRandomInt(min, max);
-            while (result.includes(int)) {
-                int = getRandomInt(min, max);
-            };
-            result.push(int);
-        }
-        return result;
+function getRandomArray(min, max, length) {
+    let result = [];
+    for (i = 0; i < length; i++) {
+        let int = getRandomInt(min, max);
+        while (result.includes(int)) {
+            int = getRandomInt(min, max);
+        };
+        result.push(int);
     }
+    return result;
+}
 
 
 function onlyUnique(value, index, self) {
