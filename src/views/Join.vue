@@ -1,5 +1,5 @@
 <template>
-  <section class="section-hero section-shaped my-0">
+  <section class="section-hero bg-primary" >
     <div class="shape shape-skew bg-primary">
       <ul class="circles">
         <li></li>
@@ -14,9 +14,11 @@
         <li></li>
       </ul>
     </div>
-    <div class="container shape-container align-items-center">
+    <div class="container shape-container align-items-center" style="padding: 20vh 0;
+    position: relative;">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-8">
+
           <card
             type="secondary"
             shadow
@@ -27,15 +29,11 @@
             <template>
               <div class="text-center">
                 <h4 class="text-dark spartan-bold">Welcome to CipherTag!</h4>
-                <!--a href="#!" class="avatar rounded-circle" style="height: 100px; width: 100px">
-    <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
-</a-->
+         
               </div>
             </template>
             <template>
-              <!--div-- class="text-center text-muted mb-4">
-                              <base-button size="sm" type="primary">Randomize</base-button>
-                            </!--div-->
+      
 
               <p v-if="!alt" class="spartan-medium text-center mb-1">
                 Room: {{ room }}

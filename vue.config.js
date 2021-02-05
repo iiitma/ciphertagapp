@@ -10,7 +10,7 @@ module.exports = {
     ]
   },
   pwa: {
-    name: 'Codenames',
+    name: 'CipherTag',
     themeColor: '#4e54c8',
     msTileColor: '#4e54c8',
     appleMobileWebAppCapable: 'yes',

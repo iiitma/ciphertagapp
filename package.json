@@ -1,6 +1,6 @@
 {
   "name": "ciphertag",
-  "version": "0.1.0",
+  "version": "0.1.2-alpha",
   "private": true,
   "scripts": {
     "start": "node src/server/index.js  > dist/log.txt",

@@ -1,23 +1,21 @@
 <template>
-
-<div>
-    <section class="section-hero section-shaped my-0">
-       
-<div class="shape shape-skew bg-primary" >
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-        <div class="container shape-container d-flex align-items-center">
+  <section class="section-hero bg-primary" >
+    <div class="shape shape-skew bg-primary">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="container shape-container align-items-center" style="padding: 20vh 0;
+    position: relative;">
             <div class="col px-0">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-7 text-center">
@@ -55,9 +53,6 @@
         </div>
     </section>
    
-
-
-</div>
 </template>
 
 <script>

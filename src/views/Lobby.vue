@@ -1,10 +1,10 @@
 <template>
-  <div>
+
+
     <section
-      class="section-hero section-shaped my-0"
-      style="min-height: 100vh; overflow: scroll"
+      class="my-0 bg-primary" style="position: initial"
     >
-      <div class="shape bg-primary">
+      <div class="shape ">
         <ul class="circles">
           <li></li>
           <li></li>
@@ -153,7 +153,6 @@
 
       <div
         class="shape-container d-flex align-items-center"
-        style="overflow: scroll"
       >
         <div class="col px-0">
           <div class="row justify-content-center align-items-center">
@@ -409,7 +408,8 @@
         </div>
       </div>
     </section>
-  </div>
+
+
 </template>
 
 <script>

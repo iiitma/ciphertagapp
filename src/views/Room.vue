@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="section-hero section-shaped my-0" style="min-height: 100vh">
+  <section class="section-hero bg-primary" >
       <div class="shape bg-primary">
         <ul class="circles">
           <li></li>
@@ -20,7 +20,7 @@
           <router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
             <!--img src="img/brand/blue.png" alt="logo"-->
             <base-button type="white" size="sm">
-              <span class="spartan-bold text-primary">CODENAMES</span>
+              <span class="spartan-bold text-primary">ciphertag</span>
             </base-button>
           </router-link>
         </div>

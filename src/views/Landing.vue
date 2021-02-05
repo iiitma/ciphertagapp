@@ -1,7 +1,7 @@
 <template>
 
 <div>
-    <section class="section-hero section-shaped my-0">
+    <section class="section-shaped my-0">
        
 <div class="shape shape-skew bg-primary" >
             <ul class="circles">
@@ -44,9 +44,9 @@
                         </a> -->
                     </div>
                     <div class="col-sm-4 mt-4 mt-sm-0 text-right">
-                         <span class="text-white alpha-7 spartan-regular">Coded by</span>
+                         <span class="text-white alpha-7 spartan-regular">// Coded by</span>
                         <a href="https://instagram.com/thetimilehin" target="_blank" title="">
-                            <h6 class="spartan-extrabold text-white">@thetimilehin</h6>
+                            <h6 class="spartan-extrabold text-white">// @thetimilehin </h6>
                         </a>
                     </div>
                 </div>
